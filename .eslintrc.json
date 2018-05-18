@@ -5,6 +5,17 @@
 		"wikimedia/mediawiki"
 	],
 	"env": {
-		"browser": true
-	}
+		"commonjs": true
+	},
+	"rules": {
+		"jsdoc/no-undefined-types": "off",
+		"compat/compat": "off",
+		"no-implicit-globals": "off"
+	},
+	"overrides": [
+		{
+			"files": "**/*.vue",
+			"extends": "wikimedia/vue-es6"
+		}
+	]
 }

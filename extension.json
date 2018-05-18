@@ -17,6 +17,9 @@
 	"TestAutoloadNamespaces": {
 		"MediaWiki\\Extension\\ReadingLists\\Tests\\": "tests/phpunit/"
 	},
+	"ExtensionMessagesFiles": {
+		"ReadingListsAlias": "ReadingLists.alias.php"
+	},
 	"APIModules": {
 		"readinglists": "MediaWiki\\Extension\\ReadingLists\\Api\\ApiReadingLists"
 	},
@@ -34,6 +37,9 @@
 	},
 	"ConfigRegistry": {
 		"ReadingLists": "GlobalVarConfig::newInstance"
+	},
+	"SpecialPages": {
+		"ReadingLists": "MediaWiki\\Extension\\ReadingLists\\SpecialReadingLists"
 	},
 	"config": {
 		"ReadingListsCluster": {
@@ -63,9 +69,73 @@
 	},
 	"Hooks": {
 		"APIQuerySiteInfoGeneralInfo": "MediaWiki\\Extension\\ReadingLists\\HookHandler::onAPIQuerySiteInfoGeneralInfo",
+		"BeforePageDisplay": "MediaWiki\\Extension\\ReadingLists\\HookHandler::onBeforePageDisplay",
 		"LoadExtensionSchemaUpdates": "MediaWiki\\Extension\\ReadingLists\\HookHandler::onLoadExtensionSchemaUpdates",
 		"UnitTestsAfterDatabaseSetup": "MediaWiki\\Extension\\ReadingLists\\HookHandler::onUnitTestsAfterDatabaseSetup",
 		"UnitTestsBeforeDatabaseTeardown": "MediaWiki\\Extension\\ReadingLists\\HookHandler::onUnitTestsBeforeDatabaseTeardown"
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteExtPath": "ReadingLists"
+	},
+	"ResourceModules": {
+		"readinglist.icons": {
+			"selectorWithVariant": ".mw-ui-icon-vector-gadget-rl-{name}-{variant}:before,.mw-ui-icon-rl-{name}-{variant}:before",
+			"selectorWithoutVariant": ".mw-ui-icon-vector-gadget-rl-{name}:before,.mw-ui-icon-rl-{name}:before",
+			"useDataURI": true,
+			"defaultColor": "#54595d",
+			"class": "ResourceLoaderOOUIIconPackModule",
+			"variants": [],
+			"icons": [
+				"bookmarkOutline"
+			]
+		},
+		"special.readinglist.styles": {
+			"targets": [ "desktop", "mobile" ],
+			"styles": [ "resources/special.readinglist.styles.less" ]
+		},
+		"readinglist.scripts": {
+			"dependencies": [
+				"mediawiki.api",
+				"readinglist.icons",
+				"mediawiki.Title",
+				"mediawiki.user"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"es6": true,
+			"styles": [ "resources/readinglist.scripts/styles.less" ],
+			"packageFiles": [
+				"resources/readinglist.scripts/index.js",
+				"resources/readinglist.scripts/special.js",
+				"resources/readinglist.scripts/utils.js",
+				"resources/readinglist.scripts/api.js",
+				"resources/readinglist.scripts/overlayManager.js",
+				"resources/readinglist.scripts/consts.js"
+			]
+		},
+		"readinglist.scripts.views": {
+			"dependencies": [
+				"mediawiki.api",
+				"mediawiki.user",
+				"vue",
+				"wvui-search"
+			],
+			"targets": [ "desktop", "mobile" ],
+			"messages": [
+				"readinglists-browser-add-entry-success"
+			],
+			"es6": true,
+			"packageFiles": [
+				"resources/readinglist.scripts/views/index.js",
+				"resources/readinglist.scripts/views/urlGenerator.js",
+				"resources/readinglist.scripts/views/ReadingListPage.vue",
+				"resources/readinglist.scripts/views/IntermediateState.vue",
+				"resources/readinglist.scripts/views/ErrorBox.vue",
+				"resources/readinglist.scripts/views/CollectionEditorDialog.vue",
+				"resources/readinglist.scripts/views/CollectionDialog.vue",
+				"resources/readinglist.scripts/views/Dialog.vue"
+			]
+		}
 	},
 	"ServiceWiringFiles": [
 		"ServiceWiring.php"

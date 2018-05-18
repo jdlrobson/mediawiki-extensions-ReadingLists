@@ -11,9 +11,7 @@ module.exports = function ( grunt ) {
 				cache: true
 			},
 			all: [
-				'**/*.{js,json}',
-				'!node_modules/**',
-				'!vendor/**'
+				'resources/**/*.{js,json,vue}'
 			]
 		},
 		banana: conf.MessagesDirs

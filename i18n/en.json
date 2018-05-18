@@ -23,12 +23,17 @@
 	"readinglists-db-error-entry-limit": "List $1 cannot have more than $2 {{PLURAL:$2|entry|entries}}.",
 	"readinglists-db-error-too-long": "Value for field $1 cannot be longer than $2 bytes.",
 	"readinglists-db-error-no-such-project": "'$1' is not a recognized project.",
-	"readinglists-browser-add-entry-success": "$1 saved to your reading list",
+	"readinglists-browser-add-entry-success": "$1 saved to <a href=\"$2\">list</a>.",
+	"readinglists-browser-remove-entry-success": "Removed $1 from list <a href=\"$2\">$3</a>",
 	"readinglists-browser-login-prompt": "Log in to save articles",
 	"readinglists-browser-error-intro": "An error has occurred: $1",
 	"readinglists-browser-enable-sync-prompt": "Enable syncing on your Wikipedia app to begin saving articles",
 	"readinglists-browser-extension-info-link-text": "Learn more",
 	"readinglists-browser-list-entry-limit-exceeded": "Article cannot be saved. You have reached the limit of $1 articles per list",
 	"readinglists-browser-extension-product-title": "Wikipedia Reading Lists",
-	"readinglists-browser-page-not-supported": "$1 does not support this page"
+	"readinglists-browser-page-not-supported": "$1 does not support this page",
+	"readinglists-special-title": "Your reading lists",
+	"readinglists-loading": "Page will load shortly.",
+	"reading-list-purpose": "Please login to see your private reading lists.",
+	"readinglists-error": "Your browser is unable to use the reading lists feature. Please enable JavaScript or try in another browser."
 }

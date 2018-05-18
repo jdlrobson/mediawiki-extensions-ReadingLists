@@ -6,6 +6,8 @@ use ApiQuerySiteinfo;
 use DatabaseUpdater;
 use MediaWiki\MediaWikiServices;
 use Wikimedia\Rdbms\IMaintainableDatabase;
+use OutputPage;
+use Skin;
 
 /**
  * Static entry points for hooks.
@@ -18,6 +20,21 @@ class HookHandler {
 		'reading_list_entry',
 		'reading_list_project',
 	];
+
+	/**
+	 * BeforePageDisplay hook handler
+	 * @see https://www.mediawiki.org/wiki/Manual:Hooks/BeforePageDisplay
+	 *
+	 * @param OutputPage &$out
+	 * @param Skin &$skin Skin object that will be used to generate the page, added in 1.13.
+	 * @return bool
+	 */
+	public static function onBeforePageDisplay( OutputPage &$out, Skin &$skin ) {
+		if ( !$out->getUser()->isAnon() ) {
+			$out->addModules( [ 'readinglist.scripts' ] );
+		}
+		return true;
+	}
 
 	/**
 	 * Add configuration data to the siteinfo API output.

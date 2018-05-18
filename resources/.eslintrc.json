@@ -1,0 +1,14 @@
+{
+	"extends": [
+		"wikimedia/client-es6",
+		"wikimedia/jquery",
+		"wikimedia/mediawiki",
+		"../.eslintrc.json"
+	],
+	"rules": {
+		"jsdoc/no-undefined-types": "off"
+	},
+	"parserOptions": {
+		"ecmaVersion": 6
+	}
+}
